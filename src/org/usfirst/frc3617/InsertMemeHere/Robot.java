@@ -32,11 +32,8 @@ public class Robot extends IterativeRobot {
     	
    RobotMap.driveStick = new Joystick(0);
     	RobotMap.gunnerStick = new Joystick(1);
-    	myRobot = new RobotDrive(RobotMap.frontLeftMotor,RobotMap.rearLeftMotor,RobotMap.frontRightMotor,RobotMap.rearRightMotor);
+    	myRobot = new RobotDrive(2,3);
     }
-    
-    
-    
     /**
      * This function is run once each time the robot enters autonomous mode
      */

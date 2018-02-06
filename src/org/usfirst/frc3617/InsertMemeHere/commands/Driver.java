@@ -39,8 +39,9 @@ import edu.wpi.first.wpilibj.command.Command;
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute(){
-	    Robot.myRobot.arcadeDrive(RobotMap.driveStick.getY(), -RobotMap.driveStick.getX());
+	    Robot.myRobot.arcadeDrive(-RobotMap.driveStick.getY(), RobotMap.driveStick.getX());
 	    RobotMap.arm.set(RobotMap.gunnerStick.getY());
+	    
 	    if (RobotMap.clawGrab.get() == true){
 	    	RobotMap.claw.set(0.3);
 	    	}

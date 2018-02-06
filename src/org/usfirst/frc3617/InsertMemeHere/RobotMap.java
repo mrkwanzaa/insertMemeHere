@@ -42,10 +42,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 		//Start the real stuff
 	    public static Joystick driveStick = new Joystick(0);
 		public static Joystick gunnerStick = new Joystick(1);
-		public static int frontRightMotor = 1;
-		public static int frontLeftMotor = 0;
-		public static int rearLeftMotor = 2;
-		public static int rearRightMotor = 3;
+		public static int frontRightMotor = 3;
+		public static int frontLeftMotor = 2;
+		public static int rearLeftMotor = 1;
+		public static int rearRightMotor = 0;
 		public static int armMotor = 5;
 		public static int climbMotor = 4;
 		public static int clawMotor = 6;
