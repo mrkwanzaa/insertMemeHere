@@ -8,6 +8,7 @@ import org.usfirst.frc3617.InsertMemeHere.Robot;
 import org.usfirst.frc3617.InsertMemeHere.RobotMap;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PWMSpeedController;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -24,7 +25,6 @@ import edu.wpi.first.wpilibj.command.Command;
 	JoystickButton RobotUp;	
 	private JoystickButton climbMotor;
 	
-	
 	public Driver(){
 
 		// Use requires() here to declare subsystem dependencies
@@ -32,9 +32,9 @@ import edu.wpi.first.wpilibj.command.Command;
 	
 	// Called just before this Command runs the first time
 	protected void initialize(){
+	  RobotMap.anglePlate.reset();
       gArm = new JoystickButton(RobotMap.gunnerStick, RobotMap.armMotor);
 	  RobotUp = new JoystickButton(RobotMap.gunnerStick, RobotMap.climbMotor);
-		   	
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
