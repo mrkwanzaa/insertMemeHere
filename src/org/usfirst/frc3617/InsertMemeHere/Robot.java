@@ -1,5 +1,9 @@
 package org.usfirst.frc3617.InsertMemeHere;
 
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -21,6 +25,7 @@ public class Robot extends IterativeRobot {
 	public static RobotDrive myRobot;
     public static int autoMode = 1;
     //moved from RobotMap
+
 	
 	AutonomousCommand AutonomousCommand = new AutonomousCommand();
 	Driver Driver = new Driver();
@@ -29,10 +34,11 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    	
+
+        CameraServer.getInstance().startAutomaticCapture();
    RobotMap.driveStick = new Joystick(0);
     	RobotMap.gunnerStick = new Joystick(1);
-    	myRobot = new RobotDrive(2,3);
+    	myRobot = new RobotDrive(8,3);//change to 2
     }
     /**
      * This function is run once each time the robot enters autonomous mode

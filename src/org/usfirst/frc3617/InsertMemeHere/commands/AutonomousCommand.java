@@ -42,7 +42,7 @@ private boolean finished;
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	RobotMap.anglePlate.reset(); 
+    	//RobotMap.anglePlate.reset(); 
 finished = false;
 if(RobotMap.gunnerStick.getRawAxis(3) >= 0.5){
 	if(RobotMap.driveStick.getRawAxis(3) >= 0.5){

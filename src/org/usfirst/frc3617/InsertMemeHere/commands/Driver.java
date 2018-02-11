@@ -18,9 +18,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author Thayer
  */public class Driver extends Command {
-		AnalogInput exampleAnalog;
-		public volatile static boolean ultra = true;
-	
+	int angle = 0;  
 	JoystickButton gArm;
 	JoystickButton RobotUp;	
 	private JoystickButton climbMotor;
@@ -32,21 +30,29 @@ import edu.wpi.first.wpilibj.command.Command;
 	
 	// Called just before this Command runs the first time
 	protected void initialize(){
-	  RobotMap.anglePlate.reset();
+	  //RobotMap.anglePlate.reset();
       gArm = new JoystickButton(RobotMap.gunnerStick, RobotMap.armMotor);
 	  RobotUp = new JoystickButton(RobotMap.gunnerStick, RobotMap.climbMotor);
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute(){
+		
 	    Robot.myRobot.arcadeDrive(-RobotMap.driveStick.getY(), RobotMap.driveStick.getX());
-	    RobotMap.arm.set(RobotMap.gunnerStick.getY());
-	    
+	    /*if(RobotMap.anglePlate.get() > angle)
+	    {
+	    	RobotMap.arm.set(0.2);
+	    }
+	    else
+	    {
+	    	RobotMap.arm.set(-0.5);
+	    }*/
+	    RobotMap.armExtend.set(RobotMap.gunnerStick.getY());
 	    if (RobotMap.clawGrab.get() == true){
-	    	RobotMap.claw.set(0.3);
+	    	RobotMap.claw.set(0.4);
 	    	}
 		else if(RobotMap.clawOut.get() == true){
-	    	RobotMap.claw.set(-0.2);
+	    	RobotMap.claw.set(-0.4);
 	      }
 	    else{
 	    	RobotMap.claw.set(0);
@@ -63,6 +69,15 @@ import edu.wpi.first.wpilibj.command.Command;
 	      {
 	    	RobotMap.armExtend.set(0);
 	    }
+	    if(RobotMap.armUp.get())
+	    {
+	    	angle += 10;
+	    }
+	    else if(RobotMap.armDown.get())
+	    {
+	    	if(angle>10)
+	    		angle -= 10;
+	    }
     	}
 	
 	
@@ -70,7 +85,7 @@ import edu.wpi.first.wpilibj.command.Command;
 	protected boolean isFinished(){
 		return false;
 	}
-	
+	 
 	// Called once after isFinished returns true
 	protected void end(){
 	Robot.myRobot.arcadeDrive(0,0);
@@ -78,6 +93,8 @@ import edu.wpi.first.wpilibj.command.Command;
      RobotMap.armExtend.set(0);
      RobotMap.claw.set(0);
      RobotMap.climber.set(0);
+     RobotMap.arm.set(0);
+     angle = 0;
      //   RobotMap.upMotor.set(0);
 	//    RobotMap.pullUp.set(0);
 	}
@@ -85,7 +102,7 @@ import edu.wpi.first.wpilibj.command.Command;
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted(){
-		//end();
+	
 	}
 
 	public JoystickButton getClimbMotor() {
@@ -96,4 +113,4 @@ import edu.wpi.first.wpilibj.command.Command;
 		this.climbMotor = climbMotor;
 	}
 
-	}
+}
