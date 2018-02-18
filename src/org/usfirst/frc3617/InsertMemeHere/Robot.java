@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
         CameraServer.getInstance().startAutomaticCapture();
    RobotMap.driveStick = new Joystick(0);
     	RobotMap.gunnerStick = new Joystick(1);
-    	myRobot = new RobotDrive(8,3);//change to 2
+    	myRobot = new RobotDrive(2,3);
     }
     /**
      * This function is run once each time the robot enters autonomous mode

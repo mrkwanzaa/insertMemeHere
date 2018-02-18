@@ -44,22 +44,23 @@ import edu.wpi.first.wpilibj.Encoder;
 	    public static Joystick driveStick = new Joystick(0);
 		public static Joystick gunnerStick = new Joystick(1);
 		public static int rightMotor = 3;
-		public static int leftMotor = 8;//chagne to 2
+		public static int leftMotor = 2;//chagne to 2
 		public static int armMotor = 4;
 		public static int climbMotor = 9;
 		public static int clawMotor = 6;
-		public static int extendMotor=2;
+		public static int extendMotor=5;
 		public static int plateEncoderA = 0;
 		public static int plateEncoderB = 1;
 		//public static Encoder anglePlate = new Encoder(plateEncoderA, plateEncoderB);
 		
 		public static JoystickButton clawGrab = new JoystickButton(gunnerStick, 1); 
 		public static JoystickButton clawOut = new JoystickButton(gunnerStick, 2); 
-
-		public static JoystickButton armUp = new JoystickButton(gunnerStick, 3); 
-		public static JoystickButton armDown = new JoystickButton(gunnerStick, 4); 
+ 
 		public static JoystickButton armOut = new JoystickButton(gunnerStick, 11);
 		public static JoystickButton armIn = new JoystickButton(gunnerStick, 12);
+
+		public static JoystickButton armOutSped = new JoystickButton(gunnerStick, 9);
+		public static JoystickButton armInSped = new JoystickButton(gunnerStick, 10);
 		public static Victor armExtend = new Victor(extendMotor);
 		public static Victor arm = new Victor(armMotor);
 		public static Victor climber =new Victor(climbMotor);

@@ -38,7 +38,8 @@ import edu.wpi.first.wpilibj.command.Command;
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute(){
 		
-	    Robot.myRobot.arcadeDrive(-RobotMap.driveStick.getY(), RobotMap.driveStick.getX());
+	    Robot.myRobot.arcadeDrive(RobotMap.driveStick.getY(), RobotMap.driveStick.getX());
+	    RobotMap.arm.set(RobotMap.gunnerStick.getY());
 	    /*if(RobotMap.anglePlate.get() > angle)
 	    {
 	    	RobotMap.arm.set(0.2);
@@ -47,37 +48,43 @@ import edu.wpi.first.wpilibj.command.Command;
 	    {
 	    	RobotMap.arm.set(-0.5);
 	    }*/
-	    RobotMap.armExtend.set(RobotMap.gunnerStick.getY());
 	    if (RobotMap.clawGrab.get() == true){
-	    	RobotMap.claw.set(0.4);
+	    	RobotMap.claw.set(-0.9);
 	    	}
 		else if(RobotMap.clawOut.get() == true){
-	    	RobotMap.claw.set(-0.4);
+	    	RobotMap.claw.set(0.9);
 	      }
 	    else{
 	    	RobotMap.claw.set(0);
 	        }
-	    if(RobotMap.armIn.get())
+	    
+	   if(RobotMap.armIn.get())
 	      {
-	    	RobotMap.armExtend.set(-0.3);
+	    	RobotMap.armExtend.set(0.4);
 	      }
 	    else if(RobotMap.armOut.get())
 	      {
-	    	RobotMap.armExtend.set(0.3);
+	    	RobotMap.armExtend.set(-0.8);
 	      }
 	    else
 	      {
 	    	RobotMap.armExtend.set(0);
-	    }
-	    if(RobotMap.armUp.get())
-	    {
-	    	angle += 10;
-	    }
-	    else if(RobotMap.armDown.get())
-	    {
-	    	if(angle>10)
-	    		angle -= 10;
-	    }
+	       }
+	   
+
+	   if(RobotMap.armInSped.get())
+	      {
+	    	RobotMap.armExtend.set(0.4);
+	      }
+	    else if(RobotMap.armOutSped.get())
+	      {
+	    	RobotMap.armExtend.set(-0.8);
+	      }
+	    else
+	      {
+	    	RobotMap.armExtend.set(0);
+	       }
+	   
     	}
 	
 	
